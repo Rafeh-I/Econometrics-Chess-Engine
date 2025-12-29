@@ -55,10 +55,10 @@ The logistic regression model treats game outcomes as binary (win vs. loss), exc
 ## Future Research Directions
 Several extensions could improve the generalizibility of the model, empirically and strategically:
 
-- **Multinomial or ordered outcome models** to jointly model wins, draws, and losses
-- **Richer positional covariates**, such as king safety indices, center control, and pawn structure
-- **Increased depth or forward-looking evaluation functions** to reduce horizon effects, where a computer ignores future negative outcomes due to low search depth
-- **Out-of-sample validation** and predictive performance evaluation
+- Non binary models such as multinomial logit to jointly model wins, draws, and losses
+- Include more positional covariates, such as king safety, center control, and pawn structure
+- Increased depth or forward-looking evaluation functions to reduce horizon effects, where a computer ignores future negative outcomes due to low search depth
+- Out-of-sample validation and predictive performance evaluation
 
 These extensions would increase computational complexity but provide a more structurally complete representation of chess decision-making.
 
@@ -69,11 +69,3 @@ These extensions would increase computational complexity but provide a more stru
 - python-chess
 - Jupyter Notebook
 
-
-## Motivation
-This project demonstrates how econometric models can be:
-- Estimated from real-world data
-- Interpreted quantitatively
-- Embedded into algorithmic decision systems
-
-It is intended as an applied econometrics portfolio project rather than a competitive chess engine.
