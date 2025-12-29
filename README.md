@@ -43,7 +43,7 @@ An interactive Jupyter-based interface allows users to:
 - Play against the engine
 - Switch between evaluation functions
 - Observe model-based position evaluations in real time
-- 
+
 ## Model Limitations and Engine Behavior
 
 ### Castling behavior:
