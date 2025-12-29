@@ -2,7 +2,7 @@
 
 ## Overview
 This project applies econometric methods to analyze chess game outcomes and demonstrates how statistical models can be embedded into algorithmic decision-making. Using a dataset of rated online chess games, I estimate a logistic regression model to quantify how material imbalances and player strength affect the probability of winning. The estimated model is then incorporated into a simple chess engine using minimax search.
-
+ 
 ## Data
 - Source: Lichess rated games database (2017 March ~ 11 million total games)
 - Sample size: ~3000 games (subsampled for computational ease)
