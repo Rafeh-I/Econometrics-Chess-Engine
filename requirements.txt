@@ -1,0 +1,7 @@
+python-chess
+pandas
+numpy
+statsmodels
+tqdm
+matplotlib
+ipywidgets
