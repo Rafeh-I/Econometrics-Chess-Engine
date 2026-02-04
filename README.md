@@ -1,14 +1,15 @@
 # Chess Game Outcome Analysis using Econometrics
 
 ## Overview
-This project applies econometric methods to analyze chess game outcomes and demonstrates how statistical models can be embedded into algorithmic decision-making. Using a dataset of rated online chess games, I estimate a logistic regression model to quantify how material imbalances and player strength affect the probability of winning. The estimated model is then incorporated into a simple chess engine using minimax search.
+This project combines econometrics and algorithmic game design to analyze and play chess. Using a dataset of rated online games, I estimate a logistic regression model to quantify how material imbalances and Elo rating differences influence winning probabilities. The model is integrated into a Python-based chess engine using minimax search with alpha–beta pruning, allowing users to play against both a hand-coded evaluator and a data-driven mode;.
  
 ## Data
 - Source: Lichess rated games database (2017 March ~ 11 million total games)
-- Sample size: ~3000 games (subsampled for computational ease)
-- Outcome variable: binary indicator for White win
-- Drawn games are excluded
+- Sample: Subsample of 3,000 games for computational ease
+- Outcome variable: Binary indicator for White win; drawn games excluded
+- Features: Piece differences (pawn, knight, bishop, rook, queen) and Elo rating difference
 - All variables are defined from White’s perspective
+  
 The full dataset is not included due to size; it can be obtained directly from the Lichess public database.
 
 ## Econometric Model
@@ -16,33 +17,20 @@ The following logistic regression model is estimated:
 
 P(White win) = logit(β0 + β1 * Material_diff + β2 * Elo_diff)
 
-Material differences are measured using piece count imbalances:
-- Pawns
-- Knights
-- Bishops
-- Rooks
-- Queens
-Elo rating differences capture relative player strength.
+-Material differences are measured using piece count imbalances
+-Elo rating differences capture relative player strength
 
-## Key Findings
-- Material advantages have large and economically meaningful effects on winning probabilities.
-- Queen and rook advantages dominate marginal effects.
-- Elo rating differences are statistically significant and quantitatively important.
-- Estimated coefficients align closely with chess theory and human intuition.
-Odds ratios are reported to facilitate economic interpretation.
+## Key insights:
+- Each additional pawn increases odds of winning by ~15%.
+- Knight/bishop advantages increase odds by ~60–66%.
+- Rook and queen advantages have the largest effects, with a queen advantage nearly quadrupling odds.
+- Elo differences are statistically significant; +100 Elo points increase win odds by ~57%.
 
 ## Chess Engine Integration
-The estimated logistic regression model is encoded into a simple chess engine:
-- Search algorithm: Minimax with alpha–beta pruning
-- Search depth: 4 plies
-- Evaluation function: Linear predictor from the estimated logit model
-
-For comparison, a traditional hand-coded evaluation function using standard chess material weight is also implemented.
-
-An interactive Jupyter-based interface allows users to:
-- Play against the engine
-- Switch between evaluation functions
-- Observe model-based position evaluations in real time
+- Search Algorithm: Minimax with alpha–beta pruning.
+- Evaluation Options: Hand coded material + positional evaluation
+- Logistic regression-based score from econometric model.
+- Interactive Interface: Play against the engine in a Jupyter notebook using a simple UI with move input, reset, and evaluation toggle.
 
 ## Model Limitations and Engine Behavior
 
@@ -56,16 +44,14 @@ The logistic regression model treats game outcomes as binary (win vs. loss), exc
 Several extensions could improve the generalizibility of the model, empirically and strategically:
 
 - Non binary models such as multinomial logit to jointly model wins, draws, and losses
-- Include more positional covariates, such as king safety, center control, and pawn structure
-- Increased depth or forward-looking evaluation functions to reduce horizon effects, where a computer ignores future negative outcomes due to low search depth
-- Out-of-sample validation and predictive performance evaluation
+- Include richer positional features (king safety, pawn structure, control of center).
+- Increase search depth or implement more advanced evaluation functions
+- Out-of-sample validation to assess predictive performance.
 
 These extensions would increase computational complexity but provide a more structurally complete representation of chess decision-making.
 
 ## Technologies used
-- Python
-- pandas, numpy
-- statsmodels
-- python-chess
-- Jupyter Notebook
+-Languages: Python
+-Libraries: pandas, numpy, statsmodels, python-chess, ipywidgets, matplotlib, tqdm
+-Environment: Jupyter Notebook
 
