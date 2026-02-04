@@ -51,7 +51,7 @@ Several extensions could improve the generalizibility of the model, empirically 
 These extensions would increase computational complexity but provide a more structurally complete representation of chess decision-making.
 
 ## Technologies used
--Languages: Python
--Libraries: pandas, numpy, statsmodels, python-chess, ipywidgets, matplotlib, tqdm
--Environment: Jupyter Notebook
+- Languages: Python
+- Libraries: pandas, numpy, statsmodels, python-chess, ipywidgets, matplotlib, tqdm
+- Environment: Jupyter Notebook
 
